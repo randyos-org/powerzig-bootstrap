@@ -2,7 +2,7 @@ name: Build LLVM for PowerPC 32-bit
 
 # Cross-compiles LLVM, Clang and LLD (plus zlib/zstd) for $TARGET using the
 # scripts in zig-build (https://github.com/randyos-org/zig-build), and
-# publishes the static-library install prefix for emanspeaks/powerzig.
+# publishes the static-library install prefix for randyos-org/powerzig.
 #
 # All build logic lives in zig-build; this workflow only schedules it, carries
 # results between jobs, and publishes. Each release carries a manifest.json from
@@ -287,7 +287,7 @@ jobs:
             "| LLVM sources (zig-bootstrap) | `\(.zig_bootstrap_commit[0:12])` |\n" +
             "| Devkit | `\(.devkit_version)` |\n" +
             "| llvm_key | `\(.llvm_key)` |\n\n" +
-            "`manifest.json` lists every input. Consumed by emanspeaks/powerzig."' manifest.json > notes.md
+            "`manifest.json` lists every input. Consumed by randyos-org/powerzig."' manifest.json > notes.md
           # fallback for a reserved name missing from RESERVED_TAGS: GitHub rejects
           # it and lists reserved names nowhere, so step past it
           for _ in $(seq 20); do

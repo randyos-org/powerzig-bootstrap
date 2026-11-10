@@ -1,6 +1,6 @@
 # Powerzig-bootstrap
 
-Publishes the cross-compiled LLVM that [emanspeaks/powerzig](https://github.com/emanspeaks/powerzig) links into Zig for PowerPC 32-bit (`powerpc-linux-musleabihf`, `baseline` CPU).
+Publishes the cross-compiled LLVM that [randyos-org/powerzig](https://github.com/randyos-org/powerzig) links into Zig for PowerPC 32-bit (`powerpc-linux-musleabihf`, `baseline` CPU).
 
 The build itself is defined in [zig-build](https://github.com/randyos-org/zig-build); this repo's workflow only runs those scripts on GitHub's runners and publishes the result:
 
