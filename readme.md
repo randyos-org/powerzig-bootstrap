@@ -2,7 +2,7 @@
 
 Publishes the cross-compiled LLVM that [emanspeaks/powerzig](https://github.com/emanspeaks/powerzig) links into Zig for PowerPC 32-bit (`powerpc-linux-musleabihf`, `baseline` CPU).
 
-The build itself is defined in [zig-build](https://codeberg.org/emanspeaks/zig-build); this repo's workflow only runs those scripts on GitHub's runners and publishes the result:
+The build itself is defined in [zig-build](https://github.com/randyos-org/zig-build); this repo's workflow only runs those scripts on GitHub's runners and publishes the result:
 
 1. Build a stage3 Zig for the runner from the upstream devkit (`build-stage3.sh`), cached between runs.
 2. Cross-compile LLVM, Clang, LLD, zlib and zstd with that Zig (`build-llvm-cross.sh`). This is the long step, so it is split across two jobs that share a ccache.

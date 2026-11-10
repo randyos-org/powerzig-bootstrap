@@ -1,7 +1,7 @@
 name: Build LLVM for PowerPC 32-bit
 
 # Cross-compiles LLVM, Clang and LLD (plus zlib/zstd) for $TARGET using the
-# scripts in zig-build (https://codeberg.org/emanspeaks/zig-build), and
+# scripts in zig-build (https://github.com/randyos-org/zig-build), and
 # publishes the static-library install prefix for emanspeaks/powerzig.
 #
 # All build logic lives in zig-build; this workflow only schedules it, carries
@@ -40,7 +40,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  ZIG_BUILD_URL: https://codeberg.org/emanspeaks/zig-build.git
+  ZIG_BUILD_URL: https://github.com/randyos-org/zig-build.git
   TARGET: powerpc-linux-musleabihf
   CPU: baseline
   # anything built here moves between runners, so it must run on any x86_64 cpu
@@ -282,7 +282,7 @@ jobs:
                     } | grep -E '^v[0-9]+$' | sed 's/^v//' | sort -n | tail -1)
           N=$(( ${LATEST:-0} + 1 ))
           jq -r '"Cross LLVM/Clang/LLD install prefix for `\(.target)` (`\(.cpu)`), built by " +
-            "[zig-build `\(.zig_build_commit[0:12])`](https://codeberg.org/emanspeaks/zig-build/src/commit/\(.zig_build_commit)).\n\n" +
+            "[zig-build `\(.zig_build_commit[0:12])`](https://github.com/randyos-org/zig-build/commit/\(.zig_build_commit)).\n\n" +
             "| Field | Value |\n|---|---|\n" +
             "| LLVM sources (zig-bootstrap) | `\(.zig_bootstrap_commit[0:12])` |\n" +
             "| Devkit | `\(.devkit_version)` |\n" +
